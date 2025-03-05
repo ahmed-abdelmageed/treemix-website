@@ -25,8 +25,7 @@ const HomeCertificates = () => {
         </h2>
         <p className="maincolor max-w-3xl text-sm md:text-base">
           At Tree Mix, we’re proud to have earned certifications that reflect our
-          commitment to quality, sustainability, and trust. Your wellness is in
-          certified hands.
+          commitment to quality, sustainability, and trust. We aim to be helping hand in achieving success.
         </p>
       </div>
 

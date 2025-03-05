@@ -38,7 +38,7 @@ const AboutHome = () => {
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
-            Experience The Richness <br className="hidden sm:block" /> Of Our Spices
+            Experience The Richness <br className="hidden sm:block" /> Of Our Products
           </h1>
 
           <p className="text-gray-600 text-base sm:text-lg">

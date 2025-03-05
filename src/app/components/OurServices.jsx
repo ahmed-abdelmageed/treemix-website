@@ -41,7 +41,7 @@ const services = [
     {
         icon: QualityIcon,
         title: "Quality",
-        description: "Quality for Our Products",
+        description: "Premium Products",
     },
 ];
 

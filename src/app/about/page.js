@@ -276,7 +276,7 @@ const About = () => {
             </motion.div>
 
             {/* Our Experience Section */}
-            {/* <motion.div
+            <motion.div
                 className="our-experience mx-4 sm:mx-6 md:mx-8 lg:mx-12 xl:mx-16 mb-12 text-center"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -315,7 +315,7 @@ const About = () => {
                         </motion.div>
                     ))}
                 </div>
-            </motion.div> */}
+            </motion.div>
 
             
             {/* Our History Section */}
