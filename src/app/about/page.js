@@ -221,10 +221,10 @@ const About = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                    <h2 className="section-title text-2xl md:text-4xl lg:text-5xl text-primary font-medium mb-4">
+                    <h2 className="section-title text-2xl md:text-4xl lg:text-5xl text-primary mb-4 font-medium ">
                         100% Trusted Organic Product Herbs
                     </h2>
-                    <p className="section-text mb-4 text-sm md:text-base text-gray-600">
+                    <p className="section-text  text-sm md:text-base text-gray-600 mb-2">
                         Pellentesque a ante vulputate leo porttitor luctus sed
                         eget eros. Nulla et rhoncus neque. Duis non diam eget
                         est luctus tincidunt a a mi. Nulla eu eros consequat
@@ -241,7 +241,7 @@ const About = () => {
                         ].map((feature, index) => (
                             <motion.div
                                 key={index}
-                                className="feature flex items-center gap-4 p-4 rounded-lg shadow-sm"
+                                className="feature flex items-center gap-4  rounded-lg "
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{
@@ -276,7 +276,7 @@ const About = () => {
             </motion.div>
 
             {/* Our Experience Section */}
-            <motion.div
+            {/* <motion.div
                 className="our-experience mx-4 sm:mx-6 md:mx-8 lg:mx-12 xl:mx-16 mb-12 text-center"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -315,7 +315,9 @@ const About = () => {
                         </motion.div>
                     ))}
                 </div>
-            </motion.div>
+            </motion.div> */}
+
+            
             {/* Our History Section */}
             <div className="section our-history mx-4 sm:mx-6 md:mx-8 lg:mx-12 xl:mx-16 mb-8">
                 <div className="content mx-4 sm:mx-6 md:mx-8 lg:mx-12 xl:mx-16">

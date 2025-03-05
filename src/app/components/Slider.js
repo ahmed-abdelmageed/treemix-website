@@ -86,9 +86,9 @@ export default function Slider() {
           {/* Sidebar Totals */}
           <div className="sidebar-totals hidden sm:flex justify-between items-center bg-white shadow-md rounded-lg px-4 py-3  max-w-lg mx-auto sm:mx-0">
             {[
-              { value: "300k+", label: "Product Organic" },
-              { value: "30k+", label: "Positive Feedback" },
-              { value: "300k+", label: "Satisfied Customer" },
+              { value: "500 +", label: "Product Organic" },
+              { value: "300 +", label: "Positive Feedback" },
+              { value: "200 +", label: "Satisfied Customer" },
             ].map(({ value, label }, idx) => (
               <div key={idx} className="flex items-center">
                 <div className="text-center mx-4">
