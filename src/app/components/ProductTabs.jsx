@@ -141,11 +141,10 @@ const ProductCarousel = ({ products }) => {
 
   return (
     <div className="w-full px-4 lg:px-8 xl:px-14">
-    {products && products.length > 0 ? (
-      <Slider {...settings}>
-        {products.map((product) => (
-          <div key={product.id} className="p-2">
-            <Link href={`/products/${product.id}`} passHref>
+      {products && products.length > 0 ? (
+        <Slider {...settings}>
+          {products.map((product) => (
+            <div key={product.id} className="p-2">
               <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden cursor-pointer">
                 <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80">
                   <Image
@@ -162,26 +161,30 @@ const ProductCarousel = ({ products }) => {
                   <p
                     className="text-gray-600 text-sm line-clamp-2"
                     dangerouslySetInnerHTML={{
-                      __html: (product.shortDescription?.replace(/<p>\s*<\/p>/g, "").trim() || product.description?.trim()),
+                      __html:
+                        product.shortDescription
+                          ?.replace(/<p>\s*<\/p>/g, "")
+                          .trim() || product.description?.trim(),
                     }}
                   />
                 </div>
                 <div className="px-4 pb-4">
-                  <button className="w-full py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
-                    View Details
-                  </button>
+                  <Link href={`/products/${product.id}`} passHref>
+                    <button className="w-full py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                      View Details
+                    </button>
+                  </Link>
                 </div>
               </div>
-            </Link>
-          </div>
-        ))}
-      </Slider>
-    ) : (
-      <div className="text-center py-8 text-gray-500">
-        No products available in this category.
-      </div>
-    )}
-  </div>
+            </div>
+          ))}
+        </Slider>
+      ) : (
+        <div className="text-center py-8 text-gray-500">
+          No products available in this category.
+        </div>
+      )}
+    </div>
   );
 };
 

@@ -83,7 +83,19 @@ const CertificatesPage = () => {
                         </div>
 
                         <div className="flex flex-col items-center mx-auto h-full justify-center">
-                            <Breadcrumb separator=">">
+                               <Breadcrumb
+                                                        separator={
+                                                            <span
+                                                                className="mx-4"
+                                                                style={{
+                                                                    color: "#1e874c",
+                                                                    fontSize: "24px",
+                                                                }}
+                                                            >
+                                                                &gt;
+                                                            </span>
+                                                        }
+                                                    >
                                 <Breadcrumb.Item
                                     onClick={() => router.push("/")}
                                     className="cursor-pointer text-green-600 text-[24px]"

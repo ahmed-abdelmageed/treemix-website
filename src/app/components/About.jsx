@@ -38,24 +38,30 @@ const AboutHome = () => {
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
-            Experience The Richness <br className="hidden sm:block" /> Of Our Products
+            Experience The Richness <br className="hidden sm:block" /> Of Our
+            Products
           </h1>
 
           <p className="text-gray-600 text-base sm:text-lg">
-            Explore The World Spices and elevate your creations with our premium{" "}
-            <span className="font-bold maincolor">Quality Products.</span>
+            Discover our premium Herbs & Spices and enhance your creations with{" "}
+            <span className="font-bold maincolor">High Quality.</span>
           </p>
 
           <p className="text-gray-600 text-base sm:text-lg">
-            Our Spices are sourced from the finest farms and are carefully processed to retain their natural flavors and aromas. Our spices are available in various cut sizes including:
+            Our Products are sourced from the finest farms and are carefully
+            processed to retain their natural flavors and aromas. Our Products
+            are available in various cut sizes including:
           </p>
 
           <p>
-            <span className="font-bold maincolor">“ Whole leaves, Flowers, Coarse Cut, TBC, Powder ”</span>
+            <span className="font-bold maincolor">
+              “ Whole leaves, Flowers, Coarse Cut, TBC, Powder ”
+            </span>
           </p>
 
           <p className="text-gray-600 text-base sm:text-lg">
-            We are dedicated to ensuring that our natural products meet your specific requirements.
+            We are dedicated to ensuring that our natural products meet your
+            specific requirements.
           </p>
 
           <motion.button

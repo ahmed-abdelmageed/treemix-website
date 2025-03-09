@@ -151,13 +151,13 @@ const About = () => {
 
             {/* Who We Are Section */}
             <motion.div
-                className="section who-we-are mb-8 px-4 mx-4 sm:mx-6 md:mx-8 lg:mx-12 xl:mx-16"
+                className="section who-we-are mb-8 px-2 mx-4 sm:mx-6 md:mx-8 lg:mx-12 xl:mx-16"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 viewport={{ once: true }}
             >
-                <div className="content w-full lg:w-1/2 mx-4 sm:mx-6 md:mx-8 lg:mx-12 xl:mx-16">
+                <div className="content w-full lg:w-1/2  sm:mx-6 md:mx-8 lg:mx-12 xl:mx-8">
                     <motion.h2
                         className="section-title text-2xl lg:text-4xl font-semibold text-primary"
                         initial={{ opacity: 0, y: -30 }}

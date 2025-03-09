@@ -33,7 +33,7 @@ export default function Home() {
         <>
             <Slider />
             <HomeCertificates />
-            <OurServices />
+            <OurServices id="our-services" />
             <AboutHome />
             <ProductTabs />
             {flags && flags.feedback_section !== 0 && <FeedbackSlider />}
