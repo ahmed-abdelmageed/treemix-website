@@ -370,7 +370,7 @@ body {
 :where(.css-dev-only-do-not-override-1406ny6).ant-tabs
     .ant-tabs-tab
     + .ant-tabs-tab {
-    margin: 0 0 0 12px !important;
+    margin: 0 0 0 2px !important;
 }
 
 .ant-tabs {

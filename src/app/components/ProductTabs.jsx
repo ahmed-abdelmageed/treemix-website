@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
 import herbsIcon from "../../assets/images/icons/Herbs.png";
-import spicesIcon from "../../assets/images/icons/species.png";
+import spicesIcon from "../../assets/images/icons/spicesIcon.png";
 import seedsIcon from "../../assets/images/icons/seeeds.png";
 import driedIcon from "../../assets/images/icons/dried.png";
 import Link from "next/link";

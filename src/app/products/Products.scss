@@ -159,6 +159,7 @@
     > div
     > .ant-tabs-nav::before {
     border-bottom: none !important;
+    position: static !important;
   }
 
   :where(.css-dev-only-do-not-override-1406ny6).ant-tabs-top
