@@ -4,8 +4,9 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import AboutImage from "../../assets/images/icons/about-img.png";
-
+import { useRouter } from "next/navigation"; 
 const AboutHome = () => {
+  const router = useRouter(); 
   return (
     <motion.section
       className="min-h-screen flex justify-center items-center bg-white px-4 sm:px-6 lg:py-[23px] lg:px-[120px]"
@@ -68,6 +69,7 @@ const AboutHome = () => {
             className="px-6 py-2 border border-green-600 maincolor rounded-full w-full sm:w-auto hover:bg-green-100 transition duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => router.push("/about")} // Navigate to /about
           >
             About us
           </motion.button>
