@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -11,8 +12,38 @@ import {
   EnvironmentOutlined,
 } from "@ant-design/icons";
 import footerImg from "../../assets/images/footerImg.png";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
+  const [footerData, setFooterData] = useState(null);
+
+  useEffect(() => {
+    const fetchFooterData = async () => {
+      try {
+        const response = await fetch(
+          "https://backend.treemix-eg.com/api/footer.index"
+        );
+        const data = await response.json();
+        setFooterData(data.footer[0]); // Assuming API returns an array with one object
+      } catch (error) {
+        console.error("Failed to fetch footer data:", error);
+      }
+    };
+
+    fetchFooterData();
+  }, []);
+
+  if (!footerData) return null; // Prevent rendering until data is available
+
+  const { description, social, email, address, phone, whatsapp } = footerData;
+
+  const socialLinks = [
+    { icon: <FacebookOutlined />, href: social?.facebook || "#" },
+    { icon: <TwitterOutlined />, href: social?.twitter || "#" },
+    { icon: <InstagramOutlined />, href: social?.instagram || "#" },
+    { icon: <LinkedinOutlined />, href: social?.linkedin || "#" },
+  ];
+
   const importantLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About Us" },
@@ -29,7 +60,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="bg-cover bg-center py-4"
+      className="bg-cover bg-center py-8 text-gray-800"
       style={{ backgroundImage: `url(${footerImg})` }}
     >
       <div className="py-2 px-4 sm:px-14">
@@ -46,19 +77,15 @@ const Footer = () => {
               processed to retain their natural flavors and aromas.
             </p>
             <div className="flex mt-4 space-x-4">
-              {[
-                { icon: <FacebookOutlined />, href: "#" },
-                { icon: <TwitterOutlined />, href: "#" },
-                { icon: <InstagramOutlined />, href: "#" },
-                { icon: <LinkedinOutlined />, href: "#" },
-              ].map(({ icon, href }, index) => (
+              {socialLinks.map(({ icon, href }, index) => (
                 <motion.a
                   key={index}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-green-600 text-xl"
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
-                  transition={{ type: "spring", stiffness: 200 }}
                 >
                   {icon}
                 </motion.a>
@@ -73,7 +100,9 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-8 sm:mt-0"
           >
-            <h4 className="text-lg font-semibold text-gray-800">Important Links</h4>
+            <h4 className="text-lg font-semibold text-gray-800">
+              Important Links
+            </h4>
             <ul className="mt-4 space-y-2">
               {importantLinks.map(({ href, label }, index) => (
                 <li key={index}>
@@ -97,7 +126,9 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-8 sm:mt-0"
           >
-            <h4 className="text-lg font-semibold text-gray-800">Our Products</h4>
+            <h4 className="text-lg font-semibold text-gray-800">
+              Our Products
+            </h4>
             <ul className="mt-4 space-y-2">
               {productLinks.map(({ href, label }, index) => (
                 <li key={index}>
@@ -121,63 +152,62 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="mt-8 sm:mt-0"
           >
-            <h4 className="text-lg font-semibold text-gray-800">Contact us</h4>
+            <h4 className="text-lg font-semibold text-gray-800">Contact Us</h4>
             <ul className="mt-4 space-y-2">
-              <motion.li
-                className="flex items-center text-gray-700"
-                whileHover={{ scale: 1.05 }}
-              >
-                <PhoneOutlined />
-                <a
-                  href="https://wa.me/201033770330"
-                  className="ml-2 hover:text-green-600"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Phone & WhatsApp
-                </a>
-              </motion.li>
+              {/* Phone */}
+              {/* WhatsApp */}
+              {/* WhatsApp */}
+              {whatsapp && (
+                <li className="flex items-center space-x-2">
+                  <a
+                    href={`https://wa.me/20${whatsapp.replace(/^(\+?20)/, "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 text-gray-700 hover:text-green-600"
+                  >
+                    <FaWhatsapp className="text-green-600" />
+                    <span>{whatsapp}</span>
+                  </a>
+                </li>
+              )}
 
-              <motion.li
-                className="flex items-center text-gray-700"
-                whileHover={{ scale: 1.05 }}
-              >
-                <PhoneOutlined />
-                <a
-                  href="tel:+20235850105"
-                  className="ml-2 hover:text-green-600"
-                >
-                  +20235850105
-                </a>
-              </motion.li>
+              {/* Phone */}
+              {phone && (
+                <li className="flex items-center space-x-2">
+                  <a
+                    href={`tel:+20${phone.replace(/^(\+?20)/, "")}`}
+                    className="flex items-center space-x-2 text-gray-700 hover:text-green-600"
+                  >
+                    <PhoneOutlined className="text-green-600" />
+                    <span>{phone}</span>
+                  </a>
+                </li>
+              )}
 
-              <motion.li
-                className="flex items-center text-gray-700"
-                whileHover={{ scale: 1.05 }}
-              >
-                <MailOutlined />
-                <a
-                  href="mailto:info@treemix-eg.net"
-                  className="ml-2 hover:text-green-600"
-                >
-                  info@treemix-eg.net
-                </a>
-              </motion.li>
+              {/* Email */}
+              {email && (
+                <li className="flex items-center space-x-2">
+                  <a
+                    href={`mailto:${email}`}
+                    className="flex items-center space-x-2 text-gray-700 hover:text-green-600"
+                  >
+                    <MailOutlined className="text-green-600" />
+                    <span>{email}</span>
+                  </a>
+                </li>
+              )}
 
-              <motion.li
-                className="flex items-center text-gray-700"
-                whileHover={{ scale: 1.05 }}
-              >
-                <EnvironmentOutlined />
-                <span className="ml-2">
-                  El Zafer St. Haram, Giza Egypt
-                </span>
-              </motion.li>
+              {address && (
+                <li className="flex items-center space-x-2">
+                  <EnvironmentOutlined className="text-green-600" />
+                  <span>{address}</span>
+                </li>
+              )}
             </ul>
           </motion.div>
         </div>
 
-        {/* Footer Bottom Text */}
+        {/* Copyright */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -185,7 +215,7 @@ const Footer = () => {
           className="border-t border-gray-300 mt-10 text-center py-4"
         >
           <p className="text-sm text-gray-600">
-            ©2025 Treemix. All rights reserved.
+            &copy; {new Date().getFullYear()} Tree Mix. All Rights Reserved{" "}
           </p>
         </motion.div>
       </div>

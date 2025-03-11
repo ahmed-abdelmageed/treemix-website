@@ -41,6 +41,8 @@ const sliderSettings = {
 const About = () => {
   const [teamMembers, setTeamMembers] = useState([]);
   const [ourExperience, setOurExperience] = useState([]);
+  const [whoWeAreDescription, setWhoWeAreDescription] = useState("");
+
   useEffect(() => {
     // Fetch experience data from API
     const fetchOurExperience = async () => {
@@ -61,6 +63,27 @@ const About = () => {
     };
 
     fetchOurExperience();
+  }, []);
+  useEffect(() => {
+    const fetchAboutData = async () => {
+      try {
+        const response = await fetch("https://backend.treemix-eg.com/api/about.index");
+        const data = await response.json();
+
+        if (data.success && data.about.length > 0) {
+          const whoWeAre = data.about.find((item) => item.title === "Who We Are");
+          if (whoWeAre) {
+            setWhoWeAreDescription(whoWeAre.description);
+          }
+        } else {
+          console.error("Failed to fetch About data");
+        }
+      } catch (error) {
+        console.error("Error fetching About data:", error);
+      }
+    };
+
+    fetchAboutData();
   }, []);
   useEffect(() => {
     // Fetch data from API
@@ -167,17 +190,12 @@ const About = () => {
             Who We Are ?
           </motion.h2>
           <motion.p
-            className="section-text text-base lg:text-lg mt-4"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <span className="maincolor font-bold">Tree Mix</span> believes in
-            the power of nature to promote well-being. Our premium organic products
-            are sourced from trusted farms and cultivated with care. With a
-            commitment to quality, sustainability, and trust, we bring the
-            finest herbal solutions.
-          </motion.p>
+          className="section-text text-base lg:text-lg mt-4"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          dangerouslySetInnerHTML={{ __html: whoWeAreDescription }}
+        />
         </div>
 
         <motion.div

@@ -5,7 +5,7 @@ import Image from "next/image";
 // Import images
 import sliderBackground from "../../assets/images/slider-background.png";
 import image1 from "../../assets/images/slider-img1.png";
-import image2 from "../../assets/images/slideimg-2.png";
+import image2 from "../../assets/images/slider4.png";
 import image3 from "../../assets/images/sliderimg-3.png";
 import Separator from "./Separator";
 import { useRouter } from "next/navigation";
