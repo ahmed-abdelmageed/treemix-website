@@ -47,8 +47,8 @@ const Footer = () => {
   const importantLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About Us" },
-    { href: "/contact", label: "Contact Us" },
     { href: "/certificates", label: "Certificates" },
+    { href: "/contact", label: "Contact Us" },
   ];
 
   const productLinks = [

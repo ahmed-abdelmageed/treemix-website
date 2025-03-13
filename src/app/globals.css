@@ -152,19 +152,30 @@ body {
 
 .slick-prev,
 .slick-next {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    color: white;
-    padding: 10px;
+  background-color: #0F9144;
+  border-radius: 50%;
+  z-index: 1;
+  color: #fff;
+  transition: background-color 0.2s;
 }
 
-.slick-prev {
-    left: 10px;
+/* Keep the background color on hover and focus */
+.slick-prev:hover,
+.slick-next:hover,
+.slick-prev:focus,
+.slick-next:focus {
+  background-color: #0F9144;
 }
 
-.slick-next {
-    right: 10px;
+/* Make arrows white */
+.slick-prev::before,
+.slick-next::before {
+  color: #fff;
+  font-size: 20px;
 }
+
+
+
 
 .cer-heading h6 {
     color: var(--primarry, #0f9144);

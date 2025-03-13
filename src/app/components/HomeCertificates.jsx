@@ -9,11 +9,11 @@ import fdaImg from "../../assets/images/fda.png";
 import iso from "../../assets/images/iso.png";
 import hssp from "../../assets/images/hssp.png";
 import cer4 from "../../assets/images/cer4.png";
-import fairTrade from "../../assets/images/fairTrade.png";
 import usda from "../../assets/images/usda.png";
+import fairTrade from "../../assets/images/jas.png";
 
 const HomeCertificates = () => {
-  const certificates = [fdaImg, iso, hssp, cer4, fairTrade, usda];
+  const certificates = [fdaImg, iso, hssp, cer4, usda, fairTrade];
 
   return (
     <>
@@ -24,8 +24,9 @@ const HomeCertificates = () => {
           Trusted by Experts, Loved by Nature
         </h2>
         <p className="maincolor max-w-3xl text-sm md:text-base">
-          At Tree Mix, we’re proud to have earned certifications that reflect our
-          commitment to quality, sustainability, and trust. We aim to be helping hand in achieving success.
+          At Tree Mix, we’re proud to have earned certifications that reflect
+          our commitment to quality, sustainability, and trust. We aim to be
+          helping hand in achieving success.
         </p>
       </div>
 
