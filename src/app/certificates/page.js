@@ -29,21 +29,37 @@ const CertificatesPage = () => {
     const [previewUrl, setPreviewUrl] = useState("");
     const [previewTitle, setPreviewTitle] = useState("");
 
+    // useEffect(() => {
+    //     const initializeData = async () => {
+    //         try {
+    //             const fetchedCertificates = await fetchCertificates();
+    //             setCertificates(fetchedCertificates);
+    //         } catch (error) {
+    //             message.error("Error initializing certificates.");
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     };
+
+    //     initializeData();
+    // }, []);
+
     useEffect(() => {
         const initializeData = async () => {
             try {
                 const fetchedCertificates = await fetchCertificates();
-                setCertificates(fetchedCertificates);
+                // Limit certificates to the first 2
+                setCertificates(fetchedCertificates.slice(0, 2));
             } catch (error) {
                 message.error("Error initializing certificates.");
             } finally {
                 setLoading(false);
             }
         };
-
+    
         initializeData();
     }, []);
-
+    
     const handlePreview = (certificatePdf, certificateName) => {
         if (!certificatePdf) {
             message.warning("Certificate preview is not available.");
