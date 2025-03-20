@@ -57,7 +57,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 px-6 sm:px-12 transition-all duration-300 ${navClass}`}
+      className={`fixed top-0 left-0 w-full z-50 pr-6 sm:px-12 transition-all duration-300 ${navClass}`}
     >
       <div className="container mx-auto  py-1 flex justify-between items-center">
         <Link href="/" legacyBehavior>

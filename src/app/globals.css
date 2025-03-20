@@ -134,11 +134,13 @@ body {
     }
     .slider-container {
         align-content: center !important;
+        margin-top: 60px; 
     }
-    .feedback-h2{
+    .feedback-h2 {
         font-size: 30px !important;
     }
 }
+
 .carousel .slick-slide {
     display: flex;
     justify-content: center;
