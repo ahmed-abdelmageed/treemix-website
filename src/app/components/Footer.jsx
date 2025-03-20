@@ -13,6 +13,8 @@ import {
 } from "@ant-design/icons";
 import footerImg from "../../assets/images/footerImg.png";
 import { FaWhatsapp } from "react-icons/fa";
+import Image from "next/image";
+import Logo from "../../assets/images/treemixLogo.png";
 
 const Footer = () => {
   const [footerData, setFooterData] = useState(null);
@@ -61,7 +63,6 @@ const Footer = () => {
   return (
     <footer
       className="bg-cover bg-center py-8 text-gray-800"
-      style={{ backgroundImage: `url(${footerImg})` }}
     >
       <div className="py-2 px-4 sm:px-14">
         <div className="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
@@ -71,8 +72,13 @@ const Footer = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-xl font-bold text-green-600">TREE MIX</h3>
-            <p className="text-gray-700 mt-4">
+  <div className=" footer-img-container ">
+
+<Link href="/" legacyBehavior>
+  <Image src={Logo} alt="Tree Mix" width={190} height={110}  className="ml-[-45px]" />
+</Link>{" "}
+</div>            
+            <p className="text-gray-700  ">
               Our Products are sourced from the finest farms and are carefully
               processed to retain their natural flavors and aromas.
             </p>
@@ -212,7 +218,7 @@ const Footer = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="border-t border-gray-300 mt-10 text-center py-4"
+          className="border-t border-gray-300 mt-10 text-center pt-4"
         >
           <p className="text-sm text-gray-600">
             &copy; {new Date().getFullYear()} Tree Mix. All Rights Reserved{" "}

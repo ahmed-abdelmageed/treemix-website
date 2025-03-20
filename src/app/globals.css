@@ -164,16 +164,17 @@ body {
 .slick-next:hover,
 .slick-prev:focus,
 .slick-next:focus {
-  background-color: #0F9144;
+    background-color: #0F9144;
+    color: #fff !important;
 }
 
 /* Make arrows white */
 .slick-prev::before,
 .slick-next::before {
-  color: #fff;
+  color: #fff !important;
   font-size: 20px;
+  opacity: 1; /* Ensures visibility */
 }
-
 
 
 
@@ -680,4 +681,7 @@ body {
 
 .custom-spin .ant-spin-dot-item {
     background-color: #1e874c !important; 
+}
+.footer-img-container{
+align-items: end;
 }

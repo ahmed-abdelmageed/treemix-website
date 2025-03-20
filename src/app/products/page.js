@@ -180,10 +180,10 @@ const Products = () => {
             activeKey={activeTab.toString()}
             onChange={(key) => handleCategoryChange(parseInt(key))}
             centered
-            className="mb-2 mt-2 whitespace-nowrap"
+            className="mb-2 mt-2 "
             items={categories.map((category) => ({
               label: (
-                <div className="flex flex-col items-center min-w-[80px] sm:min-w-[100px]">
+                <div className="flex flex-col items-center min-w-[110px] sm:min-w-[100px]">
                   <Image
                     src={category.image || "/placeholder-category.png"}
                     alt={category.name}

@@ -3,6 +3,8 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { FaBars, FaTimes, FaWhatsapp } from "react-icons/fa";
+import Logo from "../../assets/images/treemixLogo.png";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -57,9 +59,9 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 w-full z-50 px-6 sm:px-12 transition-all duration-300 ${navClass}`}
     >
-      <div className="container mx-auto py-4 flex justify-between items-center">
+      <div className="container mx-auto  py-1 flex justify-between items-center">
         <Link href="/" legacyBehavior>
-          <a className="maincolor text-lg font-bold">TREE MIX</a>
+          <Image src={Logo} alt="Tree Mix" width={160} height={120} />
         </Link>
 
         <button
