@@ -48,14 +48,14 @@ const services = [
 const OurServices = ({ id }) => {
   return (
     <div id={id} className="py-12 bg-white">
-      <div className="flex justify-center items-center gap-3 service-section mb-8">
+      <div className="flex justify-center items-center gap-3 service-section mb-8 px-4">
         <Image src={ServiceIcon} alt="Services Icon" width={90} height={81} />
-        <h2>Our Services</h2>
+        <h2 >Our Services</h2>
         <Image
           src={psychiatryIcon}
           alt="Services Icon"
-          width={40}
-          height={40}
+          width={35}
+          height={35}
         />
       </div>
 
