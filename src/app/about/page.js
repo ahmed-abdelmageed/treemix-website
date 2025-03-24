@@ -42,6 +42,7 @@ const About = () => {
   const [teamMembers, setTeamMembers] = useState([]);
   const [ourExperience, setOurExperience] = useState([]);
   const [whoWeAreDescription, setWhoWeAreDescription] = useState("");
+  const [breadcrumbItems, setBreadcrumbItems] = useState(["Home", "About"]);
 
   useEffect(() => {
     // Fetch experience data from API
@@ -110,66 +111,51 @@ const About = () => {
     <div className="about-container">
       {/* Header Section */}
       <div className="about-head flex flex-col lg:flex-row items-center mt-12 h-[150px] lg:h-[200px]">
-        <div className="flex w-full justify-between items-center relative h-full">
-          {/* Left Image */}
-          <div className="absolute left-0 lg:static">
-            <Image
-              src={left}
-              alt="Left Image"
-              width={200}
-              height={100}
-              className="left-image"
-            />
-          </div>
-
-          {/* Breadcrumb */}
-          <div className="flex flex-col items-center mx-auto h-full justify-center">
-            <Breadcrumb
-              separator={
-                <span
-                  className="mx-4"
-                  style={{
-                    color: "#1e874c",
-                    fontSize: "24px",
-                  }}
-                >
-                  &gt;
-                </span>
-              }
-            >
-              <Breadcrumb.Item
-                onClick={() => router.push("/")}
-                className="cursor-pointer text-green-600 text-[24px]"
-                style={{
-                  color: "#1e874c",
-                  fontSize: "24px",
-                }}
-              >
-                Home
-              </Breadcrumb.Item>
-              <Breadcrumb.Item
-                className="text-green-600 text-[24px]"
-                style={{
-                  color: "#1e874c",
-                  fontSize: "24px",
-                }}
-              >
-                About
-              </Breadcrumb.Item>
-            </Breadcrumb>
-          </div>
-
-          {/* Right Image */}
-          <div className="absolute right-0 lg:static">
-            <Image
-              src={right}
-              alt="Right Image"
-              width={200}
-              height={100}
-              className="right-image"
-            />
-          </div>
-        </div>
+      <div className="flex w-full justify-between items-center relative h-full">
+                   <div className="absolute left-0 lg:static">
+                     <Image
+                       src={left}
+                       alt="Left Image"
+                       width={200}
+                       height={100}
+                       className="left-image"
+                     />
+                   </div>
+       
+                   <div className="flex flex-col items-center mx-auto h-full justify-center">
+                     <Breadcrumb
+                       separator={
+                         <span
+                           className="mx-4"
+                           style={{ color: "#1e874c", fontSize: "24px" }}
+                         >
+                           &gt;
+                         </span>
+                       }
+                     >
+                       {breadcrumbItems.map((item, index) => (
+                         <Breadcrumb.Item
+                           key={index}
+                           onClick={() => item === "Home" && router.push("/")}
+                           className="cursor-pointer text-green-600 text-[24px]"
+                           style={{ color: "#1e874c", fontSize: "24px" }}
+                         >
+                           {item}
+                         </Breadcrumb.Item>
+                       ))}
+                     </Breadcrumb>
+                   </div>
+       
+                   <div className="absolute right-0 lg:static">
+                     <Image
+                       src={right}
+                       alt="Right Image"
+                       width={200}
+                       height={100}
+                       className="right-image"
+                     />
+                   </div>
+                 </div>
       </div>
 
       {/* Who We Are Section */}
