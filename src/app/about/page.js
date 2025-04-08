@@ -224,14 +224,7 @@ const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl text-bold mb-4 font-medium ">
-          Our Services
-          </h2>
-          <p className="section-text  text-sm md:text-base text-gray-600 mb-2">
-            We provide premium-quality herbs, ensuring the highest standards of
-            freshness and purity. Our commitment guarantees exceptional quality
-            and trust.
-          </p>
+     /
           <div className="features-grid grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               "🌿 Quality  ",

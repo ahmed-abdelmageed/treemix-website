@@ -11,6 +11,7 @@ import allpro from "../../assets/images/allpro.png";
 import right from "../../assets/images/right.png";
 import left from "../../assets/images/left.png";
 import Link from "next/link";
+import { SearchIcon } from "lucide-react";
 
 // Fetch categories function
 const fetchCategories = async () => {
@@ -54,6 +55,7 @@ const Products = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [loading, setLoading] = useState(false);
   const [breadcrumbItems, setBreadcrumbItems] = useState(["Home", "Products"]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const initializeData = async () => {
@@ -72,6 +74,10 @@ const Products = () => {
     setProductsData(fetchedProducts);
     setLoading(false);
   };
+
+  const filteredProducts = productsData.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   // Motion variants for animation effects
   const cardVariants = {
@@ -207,11 +213,27 @@ const Products = () => {
             }))}
           />
 
+          <div className="flex justify-center mb-4">
+            <div className="relative w-full max-w-lg">
+              <input
+                type="text"
+                placeholder="Search products by name..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-md focus:outline-none focus:border-green-600"
+              />
+              <SearchIcon
+                color="#0F9144"
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400"
+              />
+            </div>
+          </div>
+
           {loading ? (
             <div className="flex justify-center items-center h-40">
               <Spin size="large" className="custom-spin" />
             </div>
-          ) : productsData.length > 0 ? (
+          ) : filteredProducts.length > 0 ? (
             <motion.div
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
               initial="hidden"
@@ -221,7 +243,7 @@ const Products = () => {
                 visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
               }}
             >
-              {productsData.map(renderProductCard)}
+              {filteredProducts.map(renderProductCard)}
             </motion.div>
           ) : (
             <p className="text-center text-gray-500 mt-4">
