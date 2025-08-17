@@ -224,7 +224,7 @@ const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-     /
+     
           <div className="features-grid grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               "🌿 Quality  ",
@@ -374,7 +374,7 @@ const About = () => {
             seeds. Established in 1980, we initially focused on local trading of
             herbs and spices, but since 2000, we have expanded our operations to
             include global exports of our products and we take pride in holding
-            certifications such as Organic, USDA NOP, HACCP, ISO, FDA and Fairtrade.
+            certifications such as HACCP, ISO, and FDA.
           </p>
           <p className="section-text">
             Our commitment to providing processed products of the highest

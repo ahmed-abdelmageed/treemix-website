@@ -204,10 +204,19 @@ const Footer = () => {
               )}
 
               {address && (
-                <li className="flex items-center space-x-2">
-                  <EnvironmentOutlined className="text-green-600" />
-                  <span>{address}</span>
-                </li>
+                <li className="flex items-start space-x-2">
+                <EnvironmentOutlined className="text-green-600 mt-1" />
+                <div>
+                  <div>
+                    <span className="font-semibold">Head office:</span>{" "}
+                    El-Shawany St, Maghagha, Minya Governorate, Egypt
+                  </div>
+                  <div>
+                    <span className="font-semibold">Branch:</span>{" "}
+                    Al-Haram St., Giza, Egypt
+                  </div>
+                </div>
+              </li>
               )}
             </ul>
           </motion.div>
