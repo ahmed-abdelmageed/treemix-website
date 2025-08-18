@@ -20,8 +20,8 @@ import Slider from "react-slick";
 import { Breadcrumb } from "antd";
 import { motion } from "framer-motion";
 const sliderSettings = {
-  dots: false,
-  arrows: false,
+  dots: true,
+  arrows: true,
   infinite: true,
   speed: 500,
   slidesToShow: 4,

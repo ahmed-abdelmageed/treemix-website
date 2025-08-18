@@ -1,19 +1,32 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
-
-// Import images directly from the src/assets folder
-import fdaImg from "../../assets/images/fda.png";
-import iso from "../../assets/images/iso.png";
-import hssp from "../../assets/images/hssp.png";
-import cer4 from "../../assets/images/cer4.png";
-import usda from "../../assets/images/usda.png";
-import fairTrade from "../../assets/images/jas.png";
+import axios from "axios";
+import { Spin, message } from "antd";
 
 const HomeCertificates = () => {
-  const certificates = [fdaImg, iso, hssp, cer4, usda, fairTrade];
+  const [certificates, setCertificates] = useState([]); // ✅ no <any>
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCertificates = async () => {
+      try {
+        const response = await axios.get(
+          "https://backend.treemix-eg.com/api/certificates.index"
+        );
+        setCertificates(response.data.Certificats || []);
+      } catch (error) {
+        console.error("Error fetching certificates:", error);
+        message.error("Failed to fetch certificates. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCertificates();
+  }, []);
 
   return (
     <>
@@ -33,19 +46,25 @@ const HomeCertificates = () => {
       {/* Marquee Section */}
       <div className="bg-gradient-to-r from-green-100 via-transparent to-green-100 py-5 flex flex-col items-center w-full">
         <div className="w-full max-w-6xl overflow-hidden px-4">
-          <Marquee gradient={false} speed={30} pauseOnHover={true}>
-            {certificates.map((certificate, index) => (
-              <div key={index} className="inline-block px-4">
-                <Image
-                  src={certificate}
-                  alt={`Certificate ${index + 1}`}
-                  width={120}
-                  height={120}
-                  className="rounded-lg object-contain md:w-[173px] md:h-[173px]"
-                />
-              </div>
-            ))}
-          </Marquee>
+          {loading ? (
+            <div className="flex justify-center items-center h-32">
+              <Spin size="large" />
+            </div>
+          ) : (
+            <Marquee gradient={false} speed={30} pauseOnHover={true}>
+              {certificates.map((certificate) => (
+                <div key={certificate.id} className="inline-block px-4">
+                  <Image
+                    src={certificate.icon}
+                    alt={certificate.name || "Certificate"}
+                    width={120}
+                    height={120}
+                    className="rounded-lg object-contain md:w-[173px] md:h-[173px]"
+                  />
+                </div>
+              ))}
+            </Marquee>
+          )}
         </div>
       </div>
     </>
